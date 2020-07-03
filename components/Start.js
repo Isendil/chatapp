@@ -13,7 +13,7 @@ import {
 export default class Start extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", color: "" }; // creates state for"name" and "color"
+    this.state = { userName: "", color: "" }; // creates state for"name" and "color"
   }
   render() {
     return (
@@ -25,8 +25,8 @@ export default class Start extends React.Component {
         <View style={styles.container}>
           <TextInput
             style={styles.nameBox}
-            onChangeText={(name) => this.setState({ name })}
-            value={this.state.name}
+            onChangeText={(userName) => this.setState({ userName })}
+            value={this.state.userName}
             placeholder="Enter Name"
             placeholderTextColor={"black"}
           />
@@ -54,7 +54,7 @@ export default class Start extends React.Component {
             title="Start Chatting"
             onPress={() =>
               this.props.navigation.navigate("Chat", {
-                name: this.state.name,
+                userName: this.state.userName,
                 color: this.state.color,
               })
             }
