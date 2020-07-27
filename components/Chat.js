@@ -31,7 +31,7 @@ export default class Chat extends Component {
      * @param {string} messagingSenderId
      * @param {string} appId
      */
-
+    // firebase adding credential in order to connect to firebase
     if (!firebase.apps.length) {
       firebase.initializeApp({
         apiKey: "AIzaSyCm_Yc6MZUjuW3q7PQMmsJXWkIg4Eup-_g",
@@ -55,12 +55,7 @@ export default class Chat extends Component {
     };
   }
 
-  /**
-   * loads all messages from AsyncStorage
-   * @function getMessages
-   * @async
-   * @return {Promise<string>} The data from the storage
-   */
+  // temporarly storage of messages
   getMessages = async () => {
     let messages = "";
     try {
@@ -73,11 +68,7 @@ export default class Chat extends Component {
     }
   };
 
-  /**
-   * saves all messages from AsyncStorage
-   * @function saveMessages
-   * @async
-   */
+  // firebase storage
   saveMessages = async () => {
     try {
       await AsyncStorage.setItem(
@@ -88,12 +79,6 @@ export default class Chat extends Component {
       console.log(error.message);
     }
   };
-
-  /**
-   * deletes all messages from AsyncStorage
-   * @function deleteMessages
-   * @async
-   */
 
   deleteMessages = async () => {
     try {
@@ -107,22 +92,6 @@ export default class Chat extends Component {
   // function at various times during a component's "lifecycle". For example
   // componentDidMount will run right after the component was added to the page.
   componentDidMount() {
-    // const doGreeting = (name) => {
-    //   alert('Hi ' + name);
-    // }
-    // doGreeting('Cilvin')
-    // NetInfo.addEventListener(state => {
-    //   doGreeting('Luke')
-    // });
-
-    // NetInfo is a library that gives you access to the current network status
-    // of the user's device. For example, are we connected or disconnected from
-    // the network.
-
-    // .addEventListener registers a function to be called whenever an "event"
-    // happens, which in this case would be when the connectivity status
-    // changes. The function you give to addEventListener will be called with
-    // the "state" object, which has properties on it like "isConnected".
     NetInfo.addEventListener((state) => {
       this.handleConnectivityChange(state);
     });
@@ -163,11 +132,6 @@ export default class Chat extends Component {
   componentWillUnmount() {
     this.unsubscribe();
     this.authUnsubscribe();
-
-    // NetInfo.isConnected.removeEventListener(
-    //   "connectionChange",
-    //   this.handleConnectivityChange
-    // );
   }
 
   /**

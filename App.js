@@ -9,6 +9,7 @@ import Start from "./components/Start";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
+// Using Stack navigation to display user start screen by default.
 const navigator = createStackNavigator({
   Start: {
     screen: Start,
