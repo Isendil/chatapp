@@ -1,11 +1,16 @@
 # chatapp
 Chatapp is a simple messenger app that can be shared location between users and photos and text.
+To run the application run `expo start`
 
-1 Used React-Native
-2 Commended Code for more detail analysis
-3 install Navigation
-4 allowing camera to be used
-5 Used Firebase
+1 Use React-Native
+2 run npm install to install packages
+3 Commended Code for more detail analysis
+4 install Navigation
+5 allowing camera to be used
+6 Used Firebase
+7 Running on Android
+
+
 
 
 
